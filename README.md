@@ -52,28 +52,28 @@ scheduling barber appointments.
  - [ ] Delete an appointment.(delete)
  - [ ] Search for avalible appointments by stylist OR style(read)
  - [ ] View stylist details on stylist bio page.
- - [ ]List of stlyist are always paginaged in groups of 3
- - [ ]search results are presented in a new page.
- - [ ]Appropriate HTTP verbs are used for CRUD actions
-- [ ]GET requests are only used for read actions
-- [ ]POST requests are only used for create actions
-- [ ]PUT or PATCH requests are only used for update actions
-- [ ]DELETE requests are only used for delete actions
+ - [ ] List of stlyist are always paginaged in groups of 3
+ - [ ] search results are presented in a new page.
+ - [ ] Appropriate HTTP verbs are used for CRUD actions
+- [ ] GET requests are only used for read actions
+- [ ] POST requests are only used for create actions
+- [ ] PUT or PATCH requests are only used for update actions
+- [ ] DELETE requests are only used for delete actions
 
-- [ ]All views are rendered on the server using ser-verside templates written with react.
+- [ ] All views are rendered on the server using ser-verside templates written with react.
 - [ ] Web server can be started with the command npm start
- - [ ]Test suite can be run with the command npm test
- - [ ]All code submissions are peer reviewed via GitHub PR by at least one other member of the team
- - [ ]Master is always in a stable state (tests passing, site functions)
- - [ ]The artifact produced is properly licensed, preferably with the MIT license.
+ - [ ] Test suite can be run with the command npm test
+ - [ ] All code submissions are peer reviewed via GitHub PR by at least one other member of the team
+ - [ ] Master is always in a stable state (tests passing, site functions)
+ - [ ] The artifact produced is properly licensed, preferably with the MIT license.
 
 # Stretch
 
- - [ ]App is deployed and live on the web (consider using Heroku)
- - [ ]All source code is written with ES6
- - [ ]Users have their own account and can sign up and log in/out
- - [ ]Users have one of three roles: admin, clerk, reader
-   - [ ]Users with role reader can only view and search for books
-   - [ ]Users with role clerk can edit books in addition to viewing/searching
-   - [ ]Users with role admin can perform all actions (create, read, update, delete) with books
- - [ ]Styles have a price, cover image, stylist, approx time for style ,and stylist_id
+ - [ ] App is deployed and live on the web (consider using Heroku)
+ - [ ] All source code is written with ES6
+ - [ ] Users have their own account and can sign up and log in/out
+ - [ ] Users have one of three roles: admin, clerk, reader
+   - [ ] Users with role reader can only view and search for books
+   - [ ] Users with role clerk can edit books in addition to viewing/searching
+   - [ ] Users with role admin can perform all actions (create, read, update, delete) with books
+ - [ ] Styles have a price, cover image, stylist, approx time for style ,and stylist_id
