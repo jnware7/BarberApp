@@ -1,0 +1,35 @@
+*//Stylist//*
+
+//CREATE:(name,stylist_bio,active)
+
+INSERT INTO appointments
+VALUES(2,'Enrique','Learned to cut on the streets of Santa de Domingo',true)
+
+//READ:()
+
+Get one:
+SELECT *
+FROM stylist
+WHERE id = 1
+
+Get all:
+SELECT *
+FROM stylist
+
+
+
+//UPDATE:()
+
+UPDATE stylist
+SET  name ='Dante',stylist_bio ='Learned to cut hair in Jail. He bomb! Plus bomb designs',available ='true'
+
+//DELETE [soft delete]:()
+
+UPDATE stylist
+SET available = "false"
+WHERE id = 1
+
+to access unavailable stylist:
+
+SELECT * FROM stylist
+WHERE available ='false'

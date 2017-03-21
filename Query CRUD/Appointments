@@ -1,0 +1,45 @@
+*//Appointments//*
+
+//CREATE:(Stylist_id,customer_id,Style_id,Timeslot_id,active)
+
+INSERT INTO appointments
+VALUES(1,1,2,1,3,true)
+
+//READ:()
+SELECT customers.customer_name, customers.paided, styles.style_image, stylist.name AS stylist_name,timeslot.slottime,style_duration,price
+FROM customers
+JOIN appointments
+ON customers.id = appointments.id
+JOIN stylist
+ON appointments.stylist_id = stylist.id
+JOIN styles
+ON appointments.style_id = styles.id
+JOIN timeslot
+ON appointments.timeslot_id = timeslot.id
+WHERE active = 'true'
+
+
+//UPDATE:()
+
+UPDATE appointments
+SET Stylist_id=1,customer_id=1,Style_id=1,Timeslot_id=1,active='true'
+WHERE ID = 1;
+
+//DELETE [soft delete]:()
+
+UPDATE appointments
+SET active= "false"
+WHERE id = 1
+
+to access deleted appointments:
+SELECT customers.customer_name, customers.paided, styles.style_image, stylist.name AS stylist_name,timeslot.slottime,style_duration,price
+FROM customers
+JOIN appointments
+ON customers.id = appointments.id
+JOIN stylist
+ON appointments.stylist_id = stylist.id
+JOIN styles
+ON appointments.style_id = styles.id
+JOIN timeslot
+ON appointments.timeslot_id = timeslot.id
+WHERE active = 'false'

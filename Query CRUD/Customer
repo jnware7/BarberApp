@@ -1,0 +1,29 @@
+*//Customer//*
+
+//CREATE:(customer_name,active)
+
+INSERT INTO customers
+VALUES(1,'John',false)
+
+//READ:(customer_name,paid,style_image,stylist_name,active)
+
+SELECT customers.customer_name, customers.paided, styles.style_image, stylist.name AS stylist_name
+FROM customers
+JOIN appointments
+ON customers.id = appointments.id
+JOIN stylist
+ON appointments.stylist_id = stylist.id
+JOIN styles
+ON appointments.style_id = styles.id
+WHERE active = 'true'
+
+//UPDATE:(customer_name)
+
+UPDATE CUSTOMERS
+SET customer_name = 'Pune'
+WHERE ID = 1;
+
+//DELETE [soft delete]:()
+
+DELETE FROM Customers
+WHERE id = 1
