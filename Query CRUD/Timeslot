@@ -1,0 +1,32 @@
+*//Timeslot//*
+
+//CREATE:(time)
+
+INSERT INTO Timeslot
+VALUES(1,1)
+
+//READ:(customer_name,paid,style_image,stylist_name,active,slottime)
+
+SELECT customers.customer_name, customers.paided, styles.style_image, stylist.name AS stylist_name,timeslot.slottime
+FROM customers
+JOIN appointments
+ON customers.id = appointments.id
+JOIN stylist
+ON appointments.stylist_id = stylist.id
+JOIN styles
+ON appointments.style_id = styles.id
+JOIN timeslot
+ON timeslot_id = customers.id
+WHERE active = 'true' AND stylist.id = 1
+ORDER BY slottime ASC
+
+//UPDATE:(slottime)
+
+UPDATE timeslot
+SET slottime = 3
+WHERE ID = 1;
+
+//DELETE [soft delete]:()
+
+DELETE FROM timeslot
+WHERE id = 1

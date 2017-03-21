@@ -1,0 +1,30 @@
+*//Styles//*
+
+//CREATE:(Style_name,Style_image,Style_duration)
+
+INSERT INTO styles
+VALUES(1,'FADE','https://i.ytimg.com/vi/7j6VRAfaYWQ/maxresdefault.jpg',30)
+
+//READ:(paid,style_image,stylist_name)
+
+SELECT  styles.style_image, stylist.name AS stylist_name
+FROM customers
+JOIN appointments
+ON customers.id = appointments.id
+JOIN stylist
+ON appointments.stylist_id = stylist.id
+JOIN styles
+ON appointments.style_id = styles.id
+WHERE active = 'true'
+
+
+//UPDATE:(Style_name,Style_image,Style_duration)
+
+UPDATE styles
+SET Style_name = 'Pune',style_image = 'https://i.ytimg.com/vi/7j6VRAfaYWQ/maxresdefault.jpg ',style_duration = 30
+WHERE ID = 1;
+
+//DELETE [soft delete]:()
+
+DELETE FROM styles
+WHERE id = 1
