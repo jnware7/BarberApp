@@ -1,9 +1,22 @@
 var express = require('express')
-var app = express()
+var db = require('./database/init')
 
-app.get('/', function (req, res) {
-  res.send('Hello ya mama!')
-})
+var app = express()
+app.set('view engine', 'ejs');
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+var appointmentsRoutes = require('./routes/appointments.js')
+app.use('/appointments', appointmentsRoutes)
+var customersRoutes = require('./routes/customers.js')
+app.use('/customers', customersRoutes)
+var stylistRoutes = require('./routes/stylist.js')
+app.use('/stylist', stylistRoutes)
+var timeslotRoutes = require('./routes/timeslot.js')
+app.use('/timeslot', timeslotRoutes)
+var stylesRoutes = require('./routes/styles.js')
+app.use('/styles', stylesRoutes)
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')

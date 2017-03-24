@@ -1,24 +1,23 @@
-const fs = require('fs')
-if(fs.existsSync('.env') ){
-  require('dotenv').config()
-}
-const pgp = require('pg-promise')()
-const db = pgp(connectingString)
+const db = require('./init')
 
 const CREATE_STYLIST=`INSERT INTO appointments VALUES(1$,2$,$3)`
 const VIEW_STYLIST=`SELECT * FROM stylist`
-const UPDATE_STYLIST=`UPDATE stylist SET  name =$1,stylist_bio ='$2,available =$3`
+const VIEW_ONE_STYLIST=`SELECT * FROM stylist WHERE id = $1`
+const UPDATE_STYLIST=`UPDATE stylist SET  name =$1,stylist_bio ='$2,available = $3`
 const DELETE_STYLIST=`UPDATE stylist SET available = "false" WHERE id = $1`
-
+const VIEWSOFTDELETE_STYLIST = `SELECT * FROM appointments WHERE active = false`
 const stylist ={
-  createStylist:(Stylist_id,customer_id,Style_id,Timeslot_id,active)=>{
-    return db.many(CREATE_STYLIST,[Stylist_id,customer_id,Style_id,Timeslot_id,active])
+  createStylist:(name,stylist_bio,available)=>{
+    return db.many(CREATE_STYLIST,[name,stylist_bio,available])
   },
   viewStylist:()=>{
     return db.many(VIEW_STYLIST,[])
   },
-  editStylist:(Stylist_id,customer_id,Style_id,Timeslot_id,active,id)=>{
-    return db.one(EDIT_STYLIST,[Stylist_id,customer_id,Style_id,Timeslot_id,active,id])
+  viewOneStylist:(id)=>{
+      return db.one(VIEW_ONE_STYLIST,[id])
+    },
+  editStylist:(name,stylist_bio,available,id)=>{
+    return db.one(EDIT_STYLIST,[name,stylist_bio,available,id])
   },
   softDeleteStylist:(id)=>{
     return db.none(SOFTDELETE_STYLIST,[id])
@@ -27,4 +26,4 @@ const stylist ={
     return db.many( VIEWSOFTDELETE_STYLIST,[])
   }
 }
-module.exports = { stylist }
+module.exports =  stylist

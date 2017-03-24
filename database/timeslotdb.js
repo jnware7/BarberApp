@@ -1,9 +1,4 @@
-const fs = require('fs')
-if(fs.existsSync('.env') ){
-  require('dotenv').config()
-}
-const pgp = require('pg-promise')()
-const db = pgp(connectingString)
+const db = require('./init')
 
 const CREATE_TIME = `INSERT INTO Timeslot VALUES($1)`
 const VIEW_TIME =`SELECT customers.customer_name, customers.paided, styles.style_image, stylist.name AS stylist_name,timeslot.slottime
@@ -36,4 +31,4 @@ const timeslot ={
     return db.none(DELETE_TIME,[id])
   }
 }
-module.exports = { timeslot }
+module.exports =  timeslot
