@@ -1,12 +1,12 @@
 <h1>EDIT APPOINTMENT</h1>
-<form method="post" action="/appointments">
+<form method="post" action="/appointments/update/:id">
   STYLIST NAME:<br>
-  <input type="text" name="stylist_name[]" placeholder="stylist name" value="<%= stylist.name %>" /><br>
+  <input type="text" name="stylist_name" placeholder="stylist name" value="<%= stylist.name %>" /><br>
   CUSTOMER NAME:<br>
-  <input type="text" name="customer_name[]" placeholder="customer name" value="<%= customer.name %>" /><br>
+  <input type="text" name="customer_name" placeholder="customer name" value="<%= customer.name %>" /><br>
   STYLE NAME:<br>
-  <input type="text" name="style_name[]" placeholder="style name" value="<%= style.name %>" /><br>
+  <input type="text" name="style_name" placeholder="style name" value="<%= style.name %>" /><br>
 TIME:<br>
-    <input type="text" name="slottime[]" placeholder="slottime" value="<%= timeslot.slottime %>" /><br>
+    <input type="text" name="slottime" placeholder="slottime" value="<%= timeslot.slottime %>" /><br>
   <input type="submit" value="ADD STYLIST"/>
 </form>

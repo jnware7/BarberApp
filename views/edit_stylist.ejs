@@ -1,11 +1,11 @@
 
 <h1>EDIT STYLIST</h1>
-<form method="post" action="/stylist">
+<form method="POST" action="/stylist/update/:id">
   STYLIST NAME:<br>
-  <input type="text" name="name[]" placeholder="name" value="<%= stylist.name %>" /><br>
+  <input type="text" name="name" placeholder="name" value="<%= stylist.name %>" /><br>
   STYLIST BIO:<br>
-  <input type="text" name="stylist_bio[]" placeholder="bio" value="<%= stylist.stylist_bio %>" /><br>
+  <input type="text" name="stylist_bio" placeholder="bio" value="<%= stylist.stylist_bio %>" /><br>
   AVAILABLE:<br>
-    <input type="text" name="available[]" placeholder="true or false" value="<%= stylist.available %>" /><br>
+    <input type="text" name="available" placeholder="true or false" value="<%= stylist.available %>" /><br>
   <input type="submit" value="ADD STYLIST"/>
 </form>

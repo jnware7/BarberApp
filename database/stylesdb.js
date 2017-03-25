@@ -22,11 +22,11 @@ const styles ={
   viewOneStyles:(id) => {
     return db.one(VIEW_STYLES,[id])
   },
-  editStyles:(Style_name,Style_image,Style_duration,price) => {
-    return db.many(UPDATE_STYLES,[Style_name,Style_image,Style_duration])
+  editStyles:(Style_name,Style_image,Style_duration,price,id) => {
+    return db.many(UPDATE_STYLES,[Style_name,Style_image,Style_duration,id])
   },
   deleteStyles: (id) => {
     return db.none(DELETE_STLYES,[id])
   }
 }
-module.export = styles
+module.exports = styles

@@ -12,16 +12,7 @@ ON appointments.stylist_id = stylist.id
 JOIN styles
 ON appointments.style_id = styles.id
 WHERE active = 'true'`
-const VIEW_ONE_CUSTOMERS = `READ:(customer_name,paid,style_image,stylist_name,active)
-SELECT customers.customer_name, customers.paided, styles.style_image, stylist.name AS stylist_name
-FROM customers
-JOIN appointments
-ON customers.id = appointments.id
-JOIN stylist
-ON appointments.stylist_id = stylist.id
-JOIN styles
-ON appointments.style_id = styles.id
-WHERE active = 'true' AND id= $1`
+const VIEW_ONE_CUSTOMERS = `SELECT * FROM customers WHERE id =$1`
 const UPDATE_CUSTOMERS = `UPDATE CUSTOMERS SET customer_name = $1 paid= $2 WHERE ID = $3;`
 
 const DELETE_CUSTOMERS = `DELETE FROM Customers WHERE id = $1`
@@ -45,4 +36,4 @@ const customers = {
     return db.none(DELETE_CUSTOMERS,[id])
   }
 }
-module.export = customers
+module.exports = customers

@@ -34,7 +34,7 @@ stylesRoutes.get('/', (req,res) => {
 stylesRoutes.get('/new', (req,res)=> {
   res.render('new_styles')
 });
-//DELETE
+// //DELETE
 stylesRoutes.delete('/:id', (req,res)=> {const {id} = req.params
   styles.deleteStylist(id)
   .then(styles =>{
@@ -47,7 +47,7 @@ stylesRoutes.delete('/:id', (req,res)=> {const {id} = req.params
     })
   })
 });
-//READ ONE
+// //READ ONE
 stylesRoutes.get('/:id', (req,res) => {
   const {id} = req.params
   styles.viewOneStyles(id)
@@ -64,18 +64,36 @@ stylesRoutes.get('/:id', (req,res) => {
 });
 
 //CREATE FORM TO EDIT A ROW ALREADY IN DATABASE
-stylesRoutes.put('/edit/:id', (req,res)=> {
-  const {id} = req.params
-  const { name, styles_bio, available} = req.body
 
-  styles.editStylist(Style_name,Style_image,Style_duration,price)
+stylesRoutes.get('/:id/edit',(req,res)=>{
+  const{id} = req.params
+  styles.viewOneStyles(id)
+    .then( styles => {
+      console.log('styles::',styles);
+      res.render('edit_styles', {styles})
+    })
+    .catch(error =>{
+      res.json({
+        message: error.message,
+        error: error
+      })
+    })
+})
+
+
+stylesRoutes.post('/update/:id', (req,res)=> {
+  const {id} = req.params
+  const { Style_name,Style_image,Style_duration,price} = req.body
+
+  styles.editStylist(Style_name,Style_image,Style_duration,price,id)
   .then( styles => {
     console.log(styles)
-    res.status(200).json({
-      status: "success",
-      data: appointment,
-      message: 'Updated Stylist Info'
-    })
+    res.redirect('/styles/')
+    // res.status(200).json({
+    //   status: "success",
+    //   data: appointment,
+    //   message: 'Updated Stylist Info'
+    // })
   })
   .catch(error =>{
     res.json({

@@ -17,6 +17,7 @@ stylistRoutes.post('/', (req,res) => {
     })
   })
 });
+
 //READ ALL
 stylistRoutes.get('/', (req,res) => {
   stylist.viewStylist()
@@ -95,18 +96,19 @@ stylistRoutes.get('/:id/edit', (req,res)=> {
     })
 })
 
-stylistRoutes.put('/update/:id', (req,res)=> {
+stylistRoutes.post('/update/:id', (req,res)=> {
   const {id} = req.params
   const { name, stylist_bio, available} = req.body
 
   stylist.editStylist(name,stylist_bio,available,id)
   .then( stylist => {
     console.log(stylist)
-    res.status(200).json({
-      status: "success",
-      data: appointment,
-      message: 'Updated Stylist Info'
-    })
+    res.redirect('/stylist/')
+    // res.status(200).json({
+    //   status: "success",
+    //   data: appointment,
+    //   message: 'Updated Stylist Info'
+    // })
   })
   .catch(error =>{
     res.json({

@@ -20,6 +20,7 @@ ON appointments.style_id = styles.id
 JOIN timeslot
 ON appointments.timeslot_id = timeslot.id
 WHERE active = 'true'`
+const VIEW_ONE_APPOINTMENTS = `SELECT * FROM appointments WHERE id = $1`
 const EDIT_APPOINTMENTS =`UPDATE appointments
 SET
 Stylist_id=(select id from stylist where name= $1) ,customer_id=(select id from customers where customer_name=$2),Style_id=(select id from styles where style_name=$3),Timeslot_id=(select id from timeslot where slottime=$4),active=true
@@ -46,6 +47,9 @@ const appointments ={
   },
   viewAppointments:()=>{
     return db.many(VIEW_APPOINTMENTS,[])
+  },
+  viewOneAppointments:(id) => {
+    return db.one(VIEW_APPOINTMENTS,[id])
   },
   editAppointments:(stylist_name,customer_name,style_name,time,id)=>{
     return db.one(EDIT_APPOINTMENTS,[stylist_name,customer_name,style_name,time,id])

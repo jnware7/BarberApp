@@ -50,17 +50,33 @@ timeslotRoutes.delete('/:id', (req,res)=> {const {id} = req.params
   })
 });
 //CREATE FORM TO EDIT A ROW ALREADY IN DATABASE
-timeslotRoutes.put('/edit/:id', (req,res)=> {
+timeslotRoutes.get('/:id/edit',(req,res)=>{
+  const{id} = req.params
+  timeslot.viewOneTime(id)
+  .then( timeslot =>{
+    console.log('timeslot::',timeslot);
+    res.render('edit_timeslot',{timeslot})})
+    .catch(error =>{
+      res.json({
+        message: error.message,
+        error: error
+      })
+    })
+  })
+
+
+timeslotRoutes.post('/edit/:id', (req,res)=> {
   const {id} = req.params
   const {slottime} = req.body
   timeslot.editTime(slottime,id)
   .then( stylist => {
     console.log(stylist)
-    res.status(200).json({
-      status: "success",
-      data: appointment,
-      message: 'Updated Stylist Info'
-    })
+    res.redirect('/timeslot/')
+    // res.status(200).json({
+    //   status: "success",
+    //   data: appointment,
+    //   message: 'Updated Stylist Info'
+    // })
   })
   .catch(error =>{
     res.json({

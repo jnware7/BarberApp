@@ -8,3 +8,8 @@ const pgp = require('pg-promise')()
 const db = pgp(connectionString)
 
 module.exports = db
+const{
+  createSalt,
+  hashPassword,
+  comparePassword
+}=require('../auth/hashpassword')
