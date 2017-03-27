@@ -43,29 +43,28 @@ scheduling barber appointments.
 
 # Specifications
 
-- [ ] Appointments have a stylist,appointment time, approx time for services, and customer, style, and price.
+- [x] Appointments have a stylist,appointment time, approx time for services, and customer, style, and price.
  Users can...
 
- - [ ] Add an appointment into the system via an admin page (create)
- - [ ] See a list of appointments on the home page (read)
- - [ ] Edit an appointments stylist and style.(edit)
- - [ ] Delete an appointment.(delete)
+ - [x] See a list of appointments on the home page (read)
+ - [x] Edit an appointments stylist and style.(edit)
+ - [x] Delete an appointment.(delete)
  - [ ] Search for avalible appointments by stylist OR style(read)
- - [ ] View stylist details on stylist bio page.
+ - [x] View stylist details on stylist bio page.
  - [ ] List of stlyist are always paginaged in groups of 3
- - [ ] search results are presented in a new page.
- - [ ] Appropriate HTTP verbs are used for CRUD actions
-- [ ] GET requests are only used for read actions
-- [ ] POST requests are only used for create actions
-- [ ] PUT or PATCH requests are only used for update actions
-- [ ] DELETE requests are only used for delete actions
+ - [x] search results are presented in a new page.
+ - [x] Appropriate HTTP verbs are used for CRUD actions
+- [x] GET requests are only used for read actions
+- [x] POST requests are only used for create actions
+- [x] PUT or PATCH requests are only used for update actions
+- [x] DELETE requests are only used for delete actions
 
 - [ ] All views are rendered on the server using ser-verside templates written with react.
 - [ ] Web server can be started with the command npm start
- - [ ] Test suite can be run with the command npm test
+ - [x] Test suite can be run with the command npm test
  - [ ] All code submissions are peer reviewed via GitHub PR by at least one other member of the team
  - [ ] Master is always in a stable state (tests passing, site functions)
- - [ ] The artifact produced is properly licensed, preferably with the MIT license.
+ - [x] The artifact produced is properly licensed, preferably with the MIT license.
 
 # Stretch
 
