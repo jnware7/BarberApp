@@ -1,0 +1,30 @@
+{
+  "name": "BarberApp",
+  "version": "1.0.0",
+  "description": "Fullstack app to schedule barber appointments # Challenge Rubric",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jnware7/BarberApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jnware7/BarberApp/issues"
+  },
+  "homepage": "https://github.com/jnware7/BarberApp#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.1",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "express-session": "^1.15.1",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "pg-promise": "^5.6.4"
+  }
+}
